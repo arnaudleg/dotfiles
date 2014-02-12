@@ -4,10 +4,10 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" comments
+" comments <leader>cc, <leader>cu
 Bundle 'scrooloose/nerdcommenter'
 
-" tabs
+
 Bundle 'mkitt/tabline.vim'
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
@@ -171,6 +171,25 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=99
 
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+set undolevels=1000 
+
+set wildmenu
+
+" edit my vimrc file
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" back to normal mode from insert
+inoremap jk <esc>
+
+set number
+
+" tabs
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -181,4 +200,16 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
+set pastetoggle=<leader>v
 
+" copy file
+nnoremap <leader>m ggyG
+
+" tips
+" * # search curr word under cursors normal mode
+" CTRL+N/+P try complete curr word with text in the file (forward/backward)
+" . repeats lasts change in normal mode
+" %  jump to a matching opening or closing parenthesis, square bracket or a curly brace
+" == indent curr line, Visual = indent block
+" u undo CTRL+R redo
+" record: press qa in normal mode - q stop recording - replay @a
