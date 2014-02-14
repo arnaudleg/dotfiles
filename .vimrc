@@ -213,3 +213,4 @@ nnoremap <leader>m ggyG
 " == indent curr line, Visual = indent block
 " u undo CTRL+R redo
 " record: press qa in normal mode - q stop recording - replay @a
+" t: till - d+motion
