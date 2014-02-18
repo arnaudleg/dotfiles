@@ -1,34 +1,38 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" INSTALL
+" $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" $ cd ~
+" $ curl -O https://raw.github.com/arnaudleg/vi/master/.vimrc
+" $ vi 
+" $ :BundleInstall
+" $ mkdir ~/.vim/colors
+" $ cp ~/.vim/bundle/vim-colorschemes/colors/* ~/.vim/colors
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""Vundle"""
 set nocompatible  
 filetype off
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 
-" comments <leader>cc, <leader>cu
+
+"""NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
 
 
+"""TabLine"""
 Bundle 'mkitt/tabline.vim'
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
+"""ColorSchemes"""
 Bundle 'flazz/vim-colorschemes'
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-
-" install bundles
-" fuzzy-finder <Ctrl-P>
+"""FuzzyFinder: <Ctrl>P"""
 Bundle 'kien/ctrlp.vim'
 Bundle 'fisadev/vim-ctrlp-cmdpalette'
-
-" Folding
-" f fold fun F fold file
-Bundle 'vim-scripts/Efficient-python-folding'
-
 " Don't change working directory
 let g:ctrlp_working_path_mode = 0
 " Ignore files on fuzzy finder
@@ -37,11 +41,14 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.pyc$\|\.pyo$',
   \ }
 
-" powerline
+"""Folding: F file/f function"""
+Bundle 'vim-scripts/Efficient-python-folding'
+
+"""PowerLine"""
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 set laststatus=2
 
-" nerdtree
+"""NerdTree"""
 Bundle 'scrooloose/nerdtree'
 nnoremap <leader>e :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
@@ -51,67 +58,73 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 "au VimEnter *  NERDTree
 autocmd BufNew * wincmd l
 let NERDTreeWinSize=1
-" jedi-vim (autocomplete better than rope of python-mode)
-Bundle 'davidhalter/jedi-vim'
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "1"
 
-" python-mode
+"""JediVim"""
+" Bundle 'davidhalter/jedi-vim'
+" let g:jedi#goto_assignments_command = "<leader>g"
+" let g:jedi#goto_definitions_command = "<leader>d"
+" let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<leader>n"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = "<leader>r"
+" let g:jedi#show_call_signatures = "1"
+
+"""Python-Mode"""
 Bundle 'klen/python-mode'
 " Keys:
-" K             Show python docs
-"   Rope autocomplete
+" K     Show python docs
 " g     Rope goto definition
 " d     Rope show documentation
 " f     Rope find occurrences
 " b     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[            Jump on previous class or function (normal, visual, operator modes)
-" ]]            Jump on next class or function (normal, visual, operator modes)
-" [M            Jump on previous class or method (normal, visual, operator modes)
-" ]M            Jump on next class or method (normal, visual, operator modes)
+" [[    Jump on previous class or function (normal, visual, operator modes)
+" ]]    Jump on next class or function (normal, visual, operator modes)
+" [M    Jump on previous class or method (normal, visual, operator modes)
+" ]M    Jump on next class or method (normal, visual, operator modes)
 let g:pymode_rope = 0
-
 " Documentation
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
-
-"Linting
+" Linting
 let g:pymode_lint = 1
 let g:pymode_lint_checkers = ["pep8","pyflakes"]
 " Auto check on save
 let g:pymode_lint_write = 1
-
 " Support virtualenv
 let g:pymode_virtualenv = 1
-
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_key = 'b'
-
-" syntax highlighting
+" Syntax highlighting
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
 " Don't autofold code
 let g:pymode_folding = 0
-
 let g:pymode_lint_checkers = ["pep8","pyflakes"]
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" default
+set t_Co=256
+colorscheme vividchalk
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 syntax on
 filetype plugin indent on
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set number
 
 set guifont=ProggyCleanTT\ 12
 set ts=8 et sw=4 sts=4
-"set mouse=a
+
 " Stop that darned noise
 set visualbell
 " Seriously, shut up!
@@ -120,8 +133,8 @@ let mapleader=","
 set smartindent
 set splitbelow
 set splitright
-"set paste
-" highlight excess line length
+
+" Highlight excess line length
 augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 80
@@ -129,45 +142,30 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%80v.*/
     autocmd FileType python set nowrap
 augroup END
-
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" ui ~/.vim/colors: wget http://slinky.imukuppi.org/zenburn/zenburn.vim
-set t_Co=256
-colorscheme vividchalk
-
-" fix copy/paste
+" Fix copy/paste
 set clipboard=unnamed
 
-" fix backspace
+" Fix backspace
 set bs=2
 
-" easier moving codeblocks
+" Easier moving codeblocks: keeps selection
 vnoremap < <gv
 vnoremap > >gv
 
-"set cc=80
-"highlight ColorColumn ctermbg=10
-
-" autoreload vimrc
+" Autoreload vimrc
 autocmd! bufwritepost .vimrc source %
 
-" python
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
-" search case insensitive
+" Search case insensitive
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
+" Folding
 set nofoldenable
-
 set foldmethod=indent
 set foldlevel=99
 
@@ -177,19 +175,19 @@ set autoread
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 
+" Undo
 set undolevels=1000 
 
+" Wild Menu
 set wildmenu
 
-" edit my vimrc file
+" Edit my vimrc file
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" back to normal mode from insert
+" Back to normal mode from insert
 inoremap jk <esc>
 
-set number
-
-" tabs
+" Tabs
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -202,15 +200,19 @@ nnoremap <leader>9 9gt
 
 set pastetoggle=<leader>v
 
-" copy file
+" Copy file
 nnoremap <leader>m ggyG
 
-" tips
-" * # search curr word under cursors normal mode
-" CTRL+N/+P try complete curr word with text in the file (forward/backward)
-" . repeats lasts change in normal mode
-" %  jump to a matching opening or closing parenthesis, square bracket or a curly brace
-" == indent curr line, Visual = indent block
-" u undo CTRL+R redo
-" record: press qa in normal mode - q stop recording - replay @a
-" t: till - d+motion
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" * #        Search current word under cursor normal mode
+" Ctrl+n/p   Try complete current word with text in the file
+" .          Repeat lasts change in normal mode
+" %          Jump to a matching opening or closing parenthesis, 
+"            square bracket or a curly brace
+" ==         Indent curr line, Visual = indent block
+" u/ctrl+R   Undo/Redo
+" record     qa in normal mode, q stop recording, replay @a
+" t          till ...
+" d          motion ...
