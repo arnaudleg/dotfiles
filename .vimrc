@@ -43,7 +43,7 @@ set laststatus=2
 
 " nerdtree
 Bundle 'scrooloose/nerdtree'
-nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 let g:NERDTreeMouseMode=3
 " Ignore files on NERDTree
