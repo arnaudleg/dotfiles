@@ -20,6 +20,8 @@ Bundle 'gmarik/vundle'
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
 
+"""Draculaaaaa"""
+Bundle 'zenorocha/dracula-theme'
 
 """TabLine"""
 Bundle 'mkitt/tabline.vim'
@@ -108,7 +110,7 @@ let g:pymode_lint_checkers = ["pep8","pyflakes"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set t_Co=256
-colorscheme vividchalk
+" colorscheme vividchalk
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
