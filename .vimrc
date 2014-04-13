@@ -7,6 +7,7 @@
 " $ :BundleInstall
 " $ mkdir ~/.vim/colors
 " $ cp ~/.vim/bundle/vim-colorschemes/colors/* ~/.vim/colors
+" $ curl -L http://install.ohmyz.sh | sh
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """Vundle"""
