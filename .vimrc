@@ -216,6 +216,29 @@ autocmd BufWinLeave * call clearmatches()
 
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Relative numbers
+set rnu
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+function! NumberOff()
+  set number!
+endfunc
+
+map <leader>r :call NumberToggle()<cr>
+map <leader>R :call NumberOff()<cr>
+
+autocmd FocusLost * :set number
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+autocmd CursorMoved * :set relativenumber
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
