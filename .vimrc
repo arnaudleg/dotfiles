@@ -2,7 +2,7 @@
 " INSTALL
 " $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " $ cd ~
-" $ curl -O https://raw.github.com/arnaudleg/vi/master/.vimrc
+" $ wget https://raw.github.com/arnaudleg/vi/master/.vimrc
 " $ vi 
 " $ :BundleInstall
 " $ mkdir ~/.vim/colors
