@@ -239,6 +239,10 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 autocmd CursorMoved * :set relativenumber
 
+set nobackup
+set nowritebackup
+set noswapfile
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
