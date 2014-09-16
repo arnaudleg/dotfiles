@@ -62,6 +62,9 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 autocmd BufNew * wincmd l
 let NERDTreeWinSize=1
 
+"""GoPlugin"""
+Bundle 'fatih/vim-go'
+
 """JediVim"""
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#goto_assignments_command = "<leader>g"
