@@ -140,13 +140,13 @@ set splitright
 " Highlight excess line length
 augroup vimrc_autocmds
     autocmd!
-    " highlight characters past column 80
+    " highlight characters past column 79
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%80v.*/
+    autocmd FileType python match Excess /\%79v.*/
     autocmd FileType python set nowrap
 augroup END
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%80v.\+/
 
 " Fix copy/paste
 set clipboard=unnamed
