@@ -245,6 +245,7 @@ autocmd CursorMoved * :set relativenumber
 set nobackup
 set nowritebackup
 set noswapfile
+set paste
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
