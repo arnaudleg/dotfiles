@@ -5,9 +5,13 @@
 " $ wget https://raw.github.com/arnaudleg/vi/master/.vimrc
 " $ vi 
 " $ :BundleInstall
-" $ mkdir ~/.vim/colors
-" $ cp ~/.vim/bundle/vim-colorschemes/colors/* ~/.vim/colors
+
 " $ curl -L http://install.ohmyz.sh | sh
+
+" Go
+" export GOROOT="/usr/lib/go"
+" export GOPATH="/home/arnaud/go"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """Vundle"""
@@ -17,6 +21,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+"""Perl"""
+Bundle 'vim-perl/vim-perl'
+
+"""Go"""
+Bundle 'fatih/vim-go'
+Bundle 'nsf/gocode'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-jp/vim-go-extra'
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
@@ -61,9 +75,6 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 "au VimEnter *  NERDTree
 autocmd BufNew * wincmd l
 let NERDTreeWinSize=1
-
-"""GoPlugin"""
-Bundle 'fatih/vim-go'
 
 """JediVim"""
 Bundle 'davidhalter/jedi-vim'
