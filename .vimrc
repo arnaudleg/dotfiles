@@ -8,10 +8,6 @@
 
 " $ curl -L http://install.ohmyz.sh | sh
 
-" Go
-" export GOROOT="/usr/lib/go"
-" export GOPATH="/home/arnaud/go"
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """Vundle"""
@@ -26,11 +22,6 @@ Bundle 'vim-perl/vim-perl'
 
 """Go"""
 Bundle 'fatih/vim-go'
-Bundle 'nsf/gocode'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-jp/vim-go-extra'
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
