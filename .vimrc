@@ -7,6 +7,8 @@
 " $ :BundleInstall
 " $ cd ~/.vim/bundle/YouCompleteMe
 " $ ./install.sh --clang-completer
+" $ export GOPATH=`pwd`/_vendor:`pwd`
+" $ :GoInstallBinaries
 
 " $ curl -L http://install.ohmyz.sh | sh
 
