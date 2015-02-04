@@ -27,6 +27,9 @@ Bundle 'vim-perl/vim-perl'
 """Go"""
 Bundle 'fatih/vim-go'
 Bundle 'Valloric/YouCompleteMe'
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au Filetype go nnoremap <leader>d :tab split <CR>:exe "GoDef"<CR>
 
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
