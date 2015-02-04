@@ -5,6 +5,8 @@
 " $ wget https://raw.github.com/arnaudleg/vi/master/.vimrc
 " $ vi 
 " $ :BundleInstall
+" $ cd ~/.vim/bundle/YouCompleteMe
+" $ ./install.sh --clang-completer
 
 " $ curl -L http://install.ohmyz.sh | sh
 
@@ -22,6 +24,7 @@ Bundle 'vim-perl/vim-perl'
 
 """Go"""
 Bundle 'fatih/vim-go'
+Bundle 'Valloric/YouCompleteMe'
 
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
