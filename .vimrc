@@ -9,6 +9,7 @@
 " $ ./install.sh --clang-completer
 " $ export GOPATH=`pwd`/_vendor:`pwd`
 " $ :GoInstallBinaries
+" $ sudo apt-get install ctags
 
 " $ curl -L http://install.ohmyz.sh | sh
 
@@ -30,6 +31,39 @@ Bundle 'Valloric/YouCompleteMe'
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 au Filetype go nnoremap <leader>d :tab split <CR>:exe "GoDef"<CR>
+let g:godef_same_file_in_same_window = 1
+let g:go_disable_autoinstall = 0
+Bundle 'majutsushi/tagbar'
+
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+nmap <F8> :TagbarToggle<CR>
 
 """NerdCommenter: <leader>cc/cu co/uncomment"""
 Bundle 'scrooloose/nerdcommenter'
