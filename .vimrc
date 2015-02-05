@@ -291,6 +291,8 @@ set nowritebackup
 set noswapfile
 set paste
 
+nnoremap <leader>m :TagbarToggle<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
