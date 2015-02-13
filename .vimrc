@@ -31,8 +31,12 @@ Bundle 'Valloric/YouCompleteMe'
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 au Filetype go nnoremap <leader>d :tab split <CR>:exe "GoDef"<CR>
+
 let g:godef_same_file_in_same_window = 1
-let g:go_disable_autoinstall = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+ 
 Bundle 'majutsushi/tagbar'
 
 let g:tagbar_type_go = {  
