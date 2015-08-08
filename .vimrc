@@ -38,8 +38,9 @@ Bundle 'trusktr/seti.vim'
  " powerline
  " ^^^^^^^^^
 
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} 
-let g:Powerline_symbols = 'fancy'
+Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
 
 " go
 " ^^
