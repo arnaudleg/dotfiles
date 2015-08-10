@@ -142,3 +142,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+" backspace
+" ^^^^^^^^^
+
+set backspace=indent,eol,start
