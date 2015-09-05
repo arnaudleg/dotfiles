@@ -11,6 +11,7 @@
 " :BundleInstall
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.sh --clang-completer
+" brew install ctags
 
 " iterm
 " ^^^^^^
@@ -21,26 +22,37 @@
 " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+" fzf
+set rtp+=/usr/local/Cellar/fzf/HEAD
+
+
 " vundle
 " ^^^^^^
 
-set nocompatible  
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" colorscheme
-" ^^^^^^^^^^^
+" tagbar
+" ^^^^^
 
-Bundle 'trusktr/seti.vim'
+Bundle 'majutsushi/tagbar'
+autocmd BufEnter *.go nested TagbarOpen
+
+" nerdtree
+" ^^^^^^^^
+Bundle 'scrooloose/nerdtree'
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+set laststatus=2
 
  " powerline
  " ^^^^^^^^^
 
-Bundle 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
-
+Bundle 'powerline/powerline'
 
 " go
 " ^^
@@ -67,13 +79,17 @@ Bundle 'scrooloose/nerdcommenter'
 " ^^^^^^^^^^^^^^^^^^^^^
 
 Bundle 'kien/ctrlp.vim'
+
+let g:ctrlp_working_path_mode = 'ra'
+
 Bundle 'fisadev/vim-ctrlp-cmdpalette'
-" Don't change working directory
-let g:ctrlp_working_path_mode = 0
-" Ignore files on fuzzy finder
+
+set wildignore+=*/tmp/*,*.a,*.so,*.swp,*.zip,*/bin/*     " MacOSX/Linux
+
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
-  \ 'file': '\.pyc$\|\.pyo$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|bin)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
   \ }
 
 " syntax
@@ -147,3 +163,12 @@ set smartcase
 " ^^^^^^^^^
 
 set backspace=indent,eol,start
+
+" tabline
+" ^^^^^^^
+
+Bundle 'mkitt/tabline.vim'
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
