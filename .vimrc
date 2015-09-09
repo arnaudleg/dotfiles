@@ -17,7 +17,7 @@
 " ^^^^^^
 
 " curl -L http://install.ohmyz.sh | sh
-" https://github.com/philduffy/seti-iterm
+" https://github.com/wesbos/Cobalt2-iterm
 
 " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
